@@ -15,23 +15,23 @@
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes loading { to { width: 100%; } }
 
-        /* Header Premium - Plus de fond gris, juste une ligne rouge fine */
-        .header-box { padding: 40px 20px; display: flex; align-items: center; justify-content: center; gap: 30px; border-bottom: 1px solid #222; }
-        .logo-header { width: 60px; }
-        .title-header { font-size: 20px; letter-spacing: 8px; color: #fff; text-transform: uppercase; font-weight: 100; }
+        /* Header Fixe - Aligné gauche */
+        .header-box { border-bottom: 1px solid #222; padding: 25px 20px; display: flex; align-items: center; justify-content: flex-start; gap: 25px; }
+        .logo-header { width: 50px; }
+        .title-header { font-size: 22px; letter-spacing: 6px; color: #fff; text-transform: uppercase; border-left: 2px solid #ff0000; padding-left: 20px; }
 
-        /* Boutons Premium - Pas de fond gris, juste un léger changement au survol */
-        .btn-zone { width: 90%; max-width: 600px; margin: 30px auto; padding: 20px; background: transparent; border: 1px solid #222; cursor: pointer; display: flex; align-items: center; transition: 0.4s; }
-        .btn-zone:hover { border-color: #ff0000; padding-left: 30px; }
-        .btn-zone img { width: 45px; margin-right: 25px; }
-        .btn-zone span { font-size: 16px; letter-spacing: 2px; color: #aaa; transition: 0.4s; }
-        .btn-zone:hover span { color: #fff; }
+        /* Boutons avec effet relief */
+        .btn-zone { width: 90%; max-width: 600px; margin: 30px auto; padding: 20px; background: #0a0a0a; border: 1px solid #1a1a1a; cursor: pointer; display: flex; align-items: center; transition: 0.3s; box-shadow: 0 4px 15px rgba(0,0,0,0.5); }
+        .btn-zone:hover { border-color: #ff0000; background: #111; box-shadow: 0 0 10px rgba(255,0,0,0.1); }
+        .btn-zone img { width: 45px; margin-right: 25px; filter: drop-shadow(0 0 5px rgba(255,255,255,0.2)); }
+        .btn-zone span { font-size: 15px; letter-spacing: 2px; color: #eee; }
 
-        footer { text-align: center; color: #333; font-size: 9px; margin-top: 100px; letter-spacing: 2px; }
+        footer { text-align: center; color: #333; font-size: 10px; margin-top: 80px; }
 
+        /* Mobile Fix */
         @media (max-width: 600px) {
-            .header-box { gap: 15px; padding: 30px 15px; }
-            .title-header { font-size: 14px; letter-spacing: 4px; }
+            .header-box { padding: 20px 15px; }
+            .title-header { font-size: 14px; letter-spacing: 2px; }
         }
     </style>
 </head>
@@ -42,7 +42,6 @@
         <div id="bar-bg"><div id="bar"></div></div>
     </div>
 
-    <!-- MAIN -->
     <div id="home">
         <div class="header-box">
             <img src="logo.png" class="logo-header">
@@ -53,7 +52,6 @@
         </div>
     </div>
 
-    <!-- LABS -->
     <div id="labs" style="display:none;">
         <div class="header-box">
             <img src="logo.png" class="logo-header">
@@ -65,8 +63,8 @@
         <div class="btn-zone" onclick="window.open('https://discord.gg/ton-lien')">
             <img src="discord-icon.png"> <span>DISCORD</span>
         </div>
-        <div class="btn-zone" onclick="backToHome()" style="border:none; justify-content:center;">
-            <span style="text-decoration: underline; color: #ff0000;">RETOUR</span>
+        <div class="btn-zone" onclick="backToHome()" style="border:none; background:transparent; justify-content:center;">
+            <span style="color: #ff0000; text-decoration: underline;">RETOUR AU MENU</span>
         </div>
     </div>
 
