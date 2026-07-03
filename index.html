@@ -10,29 +10,28 @@
         /* Splash */
         #splash { position: fixed; top:0; left:0; width:100%; height:100%; background:#000; display:flex; flex-direction:column; justify-content:center; align-items:center; z-index:999; }
         #logo-splash { width: 300px; margin-bottom: 30px; animation: pulse 2s infinite; }
-        #bar-bg { width: 250px; height: 6px; background: #222; }
+        #bar-bg { width: 250px; height: 2px; background: #111; }
         #bar { width: 0%; height: 100%; background: #ff0000; animation: loading 6s forwards; }
         @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @keyframes loading { to { width: 100%; } }
 
-        /* Header */
-        .header-box { border-bottom: 1px solid #333; padding: 20px; display: flex; align-items: center; justify-content: center; position: relative; }
-        .logo-header { width: 80px; position: absolute; left: 20px; }
-        .title-header { border: 2px solid #ff0000; padding: 15px 40px; font-size: 24px; letter-spacing: 4px; font-weight: bold; }
+        /* Header Premium - Plus de fond gris, juste une ligne rouge fine */
+        .header-box { padding: 40px 20px; display: flex; align-items: center; justify-content: center; gap: 30px; border-bottom: 1px solid #222; }
+        .logo-header { width: 60px; }
+        .title-header { font-size: 20px; letter-spacing: 8px; color: #fff; text-transform: uppercase; font-weight: 100; }
 
-        /* Boutons */
-        .btn-zone { width: 90%; max-width: 800px; margin: 30px auto; padding: 20px; background: #111; border: 1px solid #444; cursor: pointer; display: flex; align-items: center; }
-        .btn-zone:hover { border-color: #ff0000; background: #181818; }
-        .btn-zone img { width: 50px; margin-right: 25px; }
-        .btn-zone span { font-size: 18px; font-weight: bold; }
+        /* Boutons Premium - Pas de fond gris, juste un léger changement au survol */
+        .btn-zone { width: 90%; max-width: 600px; margin: 30px auto; padding: 20px; background: transparent; border: 1px solid #222; cursor: pointer; display: flex; align-items: center; transition: 0.4s; }
+        .btn-zone:hover { border-color: #ff0000; padding-left: 30px; }
+        .btn-zone img { width: 45px; margin-right: 25px; }
+        .btn-zone span { font-size: 16px; letter-spacing: 2px; color: #aaa; transition: 0.4s; }
+        .btn-zone:hover span { color: #fff; }
 
-        footer { text-align: center; color: #444; font-size: 10px; margin-top: 50px; }
+        footer { text-align: center; color: #333; font-size: 9px; margin-top: 100px; letter-spacing: 2px; }
 
-        /* MOBILE FIX */
         @media (max-width: 600px) {
-            .header-box { justify-content: flex-start; padding: 10px; }
-            .logo-header { position: static; width: 45px; margin-right: 15px; }
-            .title-header { font-size: 14px; padding: 8px 15px; letter-spacing: 2px; }
+            .header-box { gap: 15px; padding: 30px 15px; }
+            .title-header { font-size: 14px; letter-spacing: 4px; }
         }
     </style>
 </head>
@@ -60,15 +59,14 @@
             <img src="logo.png" class="logo-header">
             <div class="title-header">KORVEX LABS</div>
         </div>
-        
         <div class="btn-zone" onclick="alert('Ouverture P9...')">
             <img src="p9-icon.png"> <span>PROTOCOLE P9</span>
         </div>
         <div class="btn-zone" onclick="window.open('https://discord.gg/ton-lien')">
             <img src="discord-icon.png"> <span>DISCORD</span>
         </div>
-        <div class="btn-zone" onclick="backToHome()" style="border-color:#555; justify-content:center;">
-            <span>← RETOUR</span>
+        <div class="btn-zone" onclick="backToHome()" style="border:none; justify-content:center;">
+            <span style="text-decoration: underline; color: #ff0000;">RETOUR</span>
         </div>
     </div>
 
