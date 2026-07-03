@@ -1,108 +1,70 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>KORVEX</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>KORVEX SYSTEM</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body { margin: 0; background: #0a0a0a; color: #fff; font-family: 'Courier New', Courier, monospace; text-align: center; }
+        
+        /* Splash Screen */
+        #splash { position: fixed; width: 100%; height: 100%; background: #000; display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 100; }
+        #logo-splash { width: 150px; margin-bottom: 20px; }
+        #loading-bar { width: 150px; height: 2px; background: #333; }
+        #bar { width: 0%; height: 100%; background: #ff0000; animation: load 2s forwards; }
 
-<style>
-body {
-margin:0;
-background:black;
-color:white;
-font-family: Arial;
-text-align:center;
-}
+        /* Hub */
+        #main { display: none; padding-top: 50px; }
+        #logo-header { width: 80px; margin-bottom: 30px; }
+        .section-title { color: #555; font-size: 12px; letter-spacing: 2px; margin-top: 40px; margin-bottom: 10px; }
+        
+        .btn-group { display: flex; flex-direction: column; align-items: center; gap: 15px; }
+        button { background: #111; color: #fff; border: 1px solid #333; padding: 15px; width: 80%; max-width: 300px; font-family: inherit; cursor: pointer; transition: 0.3s; }
+        button:hover { border: 1px solid #ff0000; background: #1a1a1a; }
 
-#splash {
-position:fixed;
-width:100%;
-height:100%;
-background:black;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-}
-
-#logo {
-width:200px;
-}
-
-#loading {
-width:200px;
-height:4px;
-background:#333;
-margin-top:20px;
-overflow:hidden;
-}
-
-#bar {
-width:0%;
-height:100%;
-background:red;
-animation: load 2s forwards;
-}
-
-@keyframes load {
-to { width:100%; }
-}
-
-#main {
-display:none;
-padding:30px;
-}
-
-button {
-background:#111;
-color:white;
-border:1px solid white;
-padding:15px;
-margin:10px;
-width:200px;
-}
-
-button:hover {
-background:#222;
-}
-</style>
+        /* Livre View */
+        #book-view { display: none; padding: 20px; }
+        #book-cover { width: 200px; cursor: pointer; border: 2px solid #555; }
+    </style>
 </head>
-
 <body>
 
 <div id="splash">
-<h1>KORVEX</h1>
-<div id="loading"><div id="bar"></div></div>
+    <img src="logo.png" id="logo-splash" alt="KORVEX">
+    <div id="loading-bar"><div id="bar"></div></div>
 </div>
 
 <div id="main">
+    <img src="logo.png" id="logo-header" alt="KORVEX">
+    
+    <div class="section-title">KORVEX LABS</div>
+    <div class="btn-group">
+        <button onclick="alert('Accès LABS restreint')">ACCÉDER AUX LABS</button>
+    </div>
 
-<h1>KORVEX HUB</h1>
+    <div class="section-title">PROTOCOLE P9</div>
+    <div class="btn-group">
+        <button onclick="showBook()">ACCÉDER AU TOME 1</button>
+    </div>
 
-<button onclick="openLabs()">🧩 KORVEX LABS</button>
-<button onclick="openBook()">📖 Lire le Tome 1</button>
-<button onclick="openDiscord()">💬 Discord</button>
+    <div class="section-title">NETWORK</div>
+    <div class="btn-group">
+        <button onclick="window.open('TON_LIEN_DISCORD')">REJOINDRE DISCORD</button>
+    </div>
+</div>
 
+<div id="book-view">
+    <h3>Protocole P9 - Tome 1</h3>
+    <img src="couverture.png" id="book-cover" onclick="alert('Ouverture du livre...')">
+    <p>Cliquez sur la couverture pour lire.</p>
+    <button onclick="backToMain()">Retour au menu</button>
 </div>
 
 <script>
-setTimeout(() => {
-document.getElementById("splash").style.display="none";
-document.getElementById("main").style.display="block";
-}, 2000);
-
-function openLabs(){
-alert("LABS bientôt connecté");
-}
-
-function openBook(){
-alert("Livre bientôt intégré");
-}
-
-function openDiscord(){
-window.open("TON LIEN DISCORD ICI");
-}
+    setTimeout(() => { document.getElementById("splash").style.display="none"; document.getElementById("main").style.display="block"; }, 2000);
+    function showBook() { document.getElementById("main").style.display="none"; document.getElementById("book-view").style.display="block"; }
+    function backToMain() { document.getElementById("main").style.display="block"; document.getElementById("book-view").style.display="none"; }
+    @keyframes load { to { width:100%; } }
 </script>
-
 </body>
 </html>
